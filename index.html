@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MINI STORE CHECKOUT SYSTEM</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f7f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #34495e;
+      font-size: 0.9rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+
+    .inline-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .inline-group input {
+      flex: 1;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #calculateBtn {
+      width: 100%;
+      padding: 12px;
+      background-color: #2ecc71;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    #calculateBtn:hover {
+      background-color: #27ae60;
+    }
+
+    #validationMessage {
+      color: #e74c3c;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+    }
+
+    #productContainer {
+      margin-bottom: 15px;
+    }
+
+    #orderSummary {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #ecf0f1;
+      border-radius: 6px;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Mini Store Checkout System</h1>
+
+    <div class="form-group">
+      <label for="customerName">Customer Name</label>
+      <input type="text" id="customerName" placeholder="Enter customer name">
+    </div>
+
+    <div class="form-group">
+      <label for="productCount">Number of Products</label>
+      <div class="inline-group">
+        <input type="number" id="productCount" min="1" placeholder="Qty">
+        <button type="button" onclick="generateProductInputs()">Generate</button>
+      </div>
+    </div>
+
+    <div id="validationMessage"></div>
+
+    <div id="productContainer"></div>
+
+    <div class="form-group">
+      <label for="deliveryOption">Delivery Option</label>
+      <select id="deliveryOption">
+        <option value="1">Store Pick-up</option>
+        <option value="2">Standard Delivery</option>
+        <option value="3">Express Delivery</option>
+      </select>
+    </div>
+
+    <button type="button" id="calculateBtn" onclick="processOrder()">Calculate Order</button>
+
+    <div id="orderSummary"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

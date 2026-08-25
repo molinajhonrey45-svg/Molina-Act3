@@ -145,4 +145,3 @@ function calculateItemAmount(price, quantity) {
       <p><strong>Final Amount: ₱${finalAmount.toFixed(2)}</strong></p>
     `;
   }
-  
